@@ -35,7 +35,7 @@ if (isset($_POST))
 		
 		
                 case "dropped": webhooks_soft_bounce($_POST["recipient"], $_POST["code"]); break;
-                case "bounced": webhooks_soft_bounce($_POST["recipient"], $_POST["code"]); break;
+                case "bounced": webhooks_hard_bounce($_POST["recipient"], $_POST["code"]); break;
                 case "complained": webhooks_spam_report($_POST["recipient"]); break;
                 case "error": event_error($_POST["event"]); break;
                 default: webhooks_debug(" == Invalid category: '".$_POST["event"]."' for: ".$_POST["recipient"]." ==");
